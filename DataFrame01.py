@@ -32,8 +32,8 @@ def smi_to_png(img: str) -> str:
 #    st.write(response[7])   #print(response['Name_OF_YOUR_KEY/ELEMENT']['INDEX_OF_VALUE']['VALUE'])
 #st.write("End FOR")
 
-#df = pd.DataFrame(response)
-#df["logo"] = df["logo"].apply(smi_to_png)
+df = pd.DataFrame(response)
+df["logo"] = df["logo"].apply(smi_to_png)
 
 st.dataframe(
   data=response, 
