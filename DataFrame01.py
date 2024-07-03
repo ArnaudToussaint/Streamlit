@@ -35,19 +35,26 @@ def smi_to_png(img: str) -> str:
 df = pd.DataFrame(response)
 df["logo"] = df["logo"].apply(smi_to_png)
 
-st.dataframe(
-  data=response, 
-  #width=None, 
-  #height=None, 
-  #*, 
-  use_container_width=True, 
-  hide_index=None, 
-  column_order=None, 
-  #column_config=None, 
-  column_config={
-    #"logo": st.column_config.ImageColumn( "Logo", help="API's logo" ),
-    "datapass_link": st.column_config.LinkColumn( "URL", help="Official link" )
-  },  
-  key=None, 
-  on_select="ignore", 
-  selection_mode="multi-row")
+col1, col2 = st.columns(2)
+
+with col1:
+    st.header("Original JSON")
+    st.dataframe(
+      data=response, 
+      #width=None, 
+      #height=None, 
+      #*, 
+      use_container_width=True, 
+      hide_index=None, 
+      column_order=None, 
+      #column_config=None, 
+      column_config={
+        #"logo": st.column_config.ImageColumn( "Logo", help="API's logo" ),
+        "datapass_link": st.column_config.LinkColumn( "URL", help="Official link" )
+      },  
+      key=None, 
+      on_select="ignore", 
+      selection_mode="multi-row")
+with col2:
+    st.header("Updated JSON")
+    st.dataframe(df)
