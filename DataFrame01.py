@@ -57,4 +57,19 @@ with col1:
       selection_mode="multi-row")
 with col2:
     st.header("Updated JSON")
-    st.dataframe(df)
+    st.dataframe(
+      data=df, 
+      #width=None, 
+      #height=None, 
+      #*, 
+      use_container_width=True, 
+      hide_index=None, 
+      column_order=None, 
+      #column_config=None, 
+      column_config={
+        #"logo": st.column_config.ImageColumn( "Logo", help="API's logo" ),
+        "datapass_link": st.column_config.LinkColumn( "URL", help="Official link" )
+      },  
+      key=None, 
+      on_select="ignore", 
+      selection_mode="multi-row")
