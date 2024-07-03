@@ -13,4 +13,21 @@ url2 = 'https://www.hatvp.fr/agora/opendata/agora_repertoire_opendata.json'
 url3 = 'https://api.gouv.fr/api/v1/apis'
 
 response = requests.get(url3).json()
-st.dataframe(response)
+#st.dataframe(response)
+
+
+st.dataframe(
+  data=response, 
+  #width=None, 
+  #height=None, 
+  #*, 
+  use_container_width=True, 
+  hide_index=None, 
+  column_order=None, 
+  #column_config=None, 
+  column_config={
+      "logo": st.column_config.ImageColumn( "Logo", help="API's logo" )
+  },  
+  key=None, 
+  on_select="ignore", 
+  selection_mode="multi-row")
