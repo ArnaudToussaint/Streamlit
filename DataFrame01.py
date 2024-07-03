@@ -5,6 +5,8 @@ import numpy as np
 import requests
 import json
 
+st.set_page_config(page_title="Test", layout='wide')
+
 #df = pd.DataFrame(np.random.randn(10, 20), columns=("col %d" % i for i in range(20)))
 #st.dataframe(df.style.highlight_max(axis=0))
 
@@ -14,7 +16,6 @@ url3 = 'https://api.gouv.fr/api/v1/apis'
 
 response = requests.get(url3).json()
 #st.dataframe(response)
-
 
 st.dataframe(
   data=response, 
