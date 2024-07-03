@@ -17,12 +17,24 @@ url3 = 'https://api.gouv.fr/api/v1/apis'
 response = requests.get(url3).json()
 #st.dataframe(response)
 
-st.write("Start FOR")
-for element in response: 
-  for value in response[7]:  #response['Name_OF_YOUR_KEY/ELEMENT']:
-    st.write(response[7])   #print(response['Name_OF_YOUR_KEY/ELEMENT']['INDEX_OF_VALUE']['VALUE'])
-st.write("End FOR")
-             
+#Base URL:             https://api.gouv.fr
+# + JSON value / img:  /images/api-logo/mtes.png
+@st.cache_data
+def smi_to_png(img: str) -> str:
+    """Returns molecular image as data URI."""
+    base_url = 'https://api.gouv.fr'
+    real_url = base_url+img
+    return real_url
+
+#st.write("Start FOR")
+#for element in response: 
+#  for value in response[7]:  #response['Name_OF_YOUR_KEY/ELEMENT']:
+#    st.write(response[7])   #print(response['Name_OF_YOUR_KEY/ELEMENT']['INDEX_OF_VALUE']['VALUE'])
+#st.write("End FOR")
+
+df = pd.DataFrame(response)
+df["logo"] = df["logo"].apply(smi_to_png)
+
 st.dataframe(
   data=response, 
   #width=None, 
