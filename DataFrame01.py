@@ -16,6 +16,6 @@ st.dataframe(df.style.highlight_max(axis=0))
 url1 = 'https://raw.githubusercontent.com/insightbuilder/python_de_learners_data/main/code_script_notebooks/python_scripts/json_reader/toplevel_comment_zGAkhN1YZXM.json'
 url2 = 'https://www.hatvp.fr/agora/opendata/agora_repertoire_opendata.json'
 
-response = requests.get(url1)
+response = requests.get(url1).json()
 
 #st.dataframe()
