@@ -45,7 +45,7 @@ st.dataframe(
   column_order=None, 
   #column_config=None, 
   column_config={
-    "logo": st.column_config.ImageColumn( "Logo", help="API's logo" ),
+    #"logo": st.column_config.ImageColumn( "Logo", help="API's logo" ),
     "datapass_link": st.column_config.LinkColumn( "URL", help="Official link" )
   },  
   key=None, 
