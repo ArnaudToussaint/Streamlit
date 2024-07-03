@@ -17,5 +17,4 @@ url1 = 'https://raw.githubusercontent.com/insightbuilder/python_de_learners_data
 url2 = 'https://www.hatvp.fr/agora/opendata/agora_repertoire_opendata.json'
 
 response = requests.get(url1).json()
-
-#st.dataframe()
+st.dataframe(response)
