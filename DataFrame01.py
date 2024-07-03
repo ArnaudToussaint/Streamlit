@@ -19,7 +19,7 @@ response = requests.get(url3).json()
 
 st.write("Start FOR")
 for element in response: 
-  for value in response[logo]:  #response['Name_OF_YOUR_KEY/ELEMENT']:
+  for value in response[7]:  #response['Name_OF_YOUR_KEY/ELEMENT']:
     st.write(response['logo']['0'])   #print(response['Name_OF_YOUR_KEY/ELEMENT']['INDEX_OF_VALUE']['VALUE'])
 st.write("End FOR")
              
