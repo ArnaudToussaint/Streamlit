@@ -32,6 +32,26 @@ def smi_to_status(term: str) -> str:
             ret_val=term
     return ret_val
 
+def column_name(tem:str) -> str:
+    match term:
+        case "title":
+            ret_val="API"
+        case "owner":
+            ret_val="Propriétaire"
+        case "openness":
+            ret_val="Statut"
+        case "tagline":
+            ret_val="Définition"
+        case "path":
+            ret_val="Détail"
+        case "logo":
+            ret_val="Logo" 
+        case "datapass_link":
+            ret_val="URL"
+        case _:
+            ret_val=term
+    return ret_val
+
 def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     """
     Adds a UI on top of a dataframe to let viewers filter columns
@@ -61,7 +81,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     modification_container = st.container()
 
     with modification_container:
-        to_filter_columns = st.multiselect("Filter dataframe on", df.columns)
+        to_filter_columns = st.multiselect("Filter dataframe on", options=df.columns, format_func=column_name)
         for column in to_filter_columns:
             left, right = st.columns((1, 20))
             # Treat columns with < 10 unique values as categorical
