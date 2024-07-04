@@ -52,6 +52,16 @@ def column_name(tem: str) -> str:
             ret_val=term
     return ret_val
 
+key_values = {
+    "title": "API",
+    "owner": "Propriétaire",
+    "openness": "Statut",
+    "tagline":"Définition",
+    "path":"Détail",
+    "logo":"Logo",
+    "datapass_link":"URL"
+}
+
 def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     """
     Adds a UI on top of a dataframe to let viewers filter columns
@@ -84,7 +94,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
         #to_filter_columns = st.multiselect("Filter dataframe on", options=df.columns, format_func=column_name)
         to_filter_columns = st.multiselect("Filter dataframe on", 
                                             options=df.columns, 
-                                           format_func=lambda x: "{}: {}".format(column_name(x),x)
+                                           format_func=lambda x: "{}: {}".format(key_values.get(x),x)
                                           )
         for column in to_filter_columns:
             left, right = st.columns((1, 20))
