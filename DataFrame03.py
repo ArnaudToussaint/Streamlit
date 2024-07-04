@@ -46,24 +46,10 @@ def smi_to_status(term: str) -> str:
     return ret_val
    
 def column_name(term: str) -> str:
-    match term:
-        case "title":
-            ret_val="API"
-        case "owner":
-            ret_val="Propriétaire"
-        case "openness":
-            ret_val="Statut"
-        case "tagline":
-            ret_val="Définition"
-        case "path":
-            ret_val="Détail"
-        case "logo":
-            ret_val="Logo" 
-        case "datapass_link":
-            ret_val="URL"
-        case _:
-            ret_val=term
-    ret_val = key_values.get(term)
+    try:
+        ret_val = key_values.get(term)
+    except:
+        ret_val = term
     return ret_val
 
 def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
