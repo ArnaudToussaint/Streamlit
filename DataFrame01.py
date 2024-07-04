@@ -79,9 +79,13 @@ with col2:
       column_order=("logo","owner","title","openness","tagline","path","datapass_link","slug","owner_acronym","datagouv_uuid"), 
       #column_config=None, 
       column_config={
-          "path": st.column_config.LinkColumn( "Définition", help="Official link" ),
-          "logo": st.column_config.ImageColumn( "Logo", help="API's logo" ),
-          "datapass_link": st.column_config.LinkColumn( "URL", help="Official link" )
+          "title": st.column_config.TextColumn("Titre"),
+          "owner": st.column_config.TextColumn("Propriétaire"),
+          "openness": st.column_config.TextColumn("Statut"),
+          "tagline": st.column_config.TextColumn("Définition"),
+          "path": st.column_config.LinkColumn("Détail", help="Official link" ),
+          "logo": st.column_config.ImageColumn("Logo", help="API's logo" ),
+          "datapass_link": st.column_config.LinkColumn("URL", help="Official link" )
       },  
       key=None, 
       on_select="ignore", 
