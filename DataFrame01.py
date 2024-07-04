@@ -49,10 +49,7 @@ with col1:
       hide_index=None, 
       column_order=None, 
       #column_config=None, 
-      column_config={
-        #"logo": st.column_config.ImageColumn( "Logo", help="API's logo" ),
-        "datapass_link": st.column_config.LinkColumn( "URL", help="Official link" )
-      },  
+      column_config=None,  
       key=None, 
       on_select="ignore", 
       selection_mode="multi-row")
@@ -68,7 +65,7 @@ with col2:
       column_order=None, 
       #column_config=None, 
       column_config={
-          "path": st.column_config.LinkColumn( "Définition", help="Official link" )
+          "path": st.column_config.LinkColumn( "Définition", help="Official link" ),
           "logo": st.column_config.ImageColumn( "Logo", help="API's logo" ),
         "datapass_link": st.column_config.LinkColumn( "URL", help="Official link" )
       },  
