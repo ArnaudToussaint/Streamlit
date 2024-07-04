@@ -13,7 +13,7 @@ response = requests.get(data_url).json()
 df = pd.DataFrame(response)
 
 st.dataframe(
-  data=df, 
+  data=df.bbox(), 
   #width=None, 
   #height=None, 
   #*, 
