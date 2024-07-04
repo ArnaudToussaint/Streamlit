@@ -33,6 +33,9 @@ except:
 try:
   df_contour=df["contour"]
   st.dataframe(df_contour)
+  
+  df_coordinates=df_contour["coordinates"]
+  st.dataframe(df_coordinates)
 except:
   st.write("TRY2: An exception occurred")
   
