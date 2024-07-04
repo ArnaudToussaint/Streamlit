@@ -5,6 +5,15 @@ import numpy as np
 import requests
 import json
 
+def find(element, JSON, path, all_paths):    
+  if element in JSON:
+    path = path + element + ' = ' + JSON[element].encode('utf-8')
+    print path
+    all_paths.append(path)
+  for key in JSON:
+    if isinstance(JSON[key], dict):
+      find(element, JSON[key],path + key + '.',all_paths)
+
 st.set_page_config(page_title="Test MAP", layout='wide')
 
 data_url='https://geo.api.gouv.fr/communes?codePostal=78260&fields=nom,code,codesPostaux,centre,surface,contour,bbox,codeDepartement,departement,codeRegion,region,population,zone&format=json&geometry=centre'
@@ -25,17 +34,15 @@ st.dataframe(
   on_select="ignore", 
   selection_mode="multi-row")
 
-try:
-  st.write(response)
-except:
-  st.write("TRY1: An exception occurred")
+#st.write(response)
         
 try:
   df_contour=df["contour"]
   st.dataframe(df_contour)
+
+  all_paths = []
+  find("coordinates",response,'',all_paths)
   
-  df_coordinates=df_contour["coordinates"]
-  st.dataframe(df_coordinates)
 except:
   st.write("TRY2: An exception occurred")
   
