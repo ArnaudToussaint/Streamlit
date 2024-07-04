@@ -91,13 +91,13 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
         if is_datetime64_any_dtype(df[col]):
             df[col] = df[col].dt.tz_localize(None)
 
-    modification_container = st.container()
-
+    #modification_container = st.container()
+    modification_container = st.sidebar.container()
+    #st.sidebar.selectbox
     with modification_container:
-        #to_filter_columns = st.multiselect("Filter dataframe on", options=df.columns, format_func=column_name)
         to_filter_columns = st.multiselect("Filter dataframe on", 
                                             options=df.columns, 
-                                           format_func=lambda x: "{}".format(key_values.get(x),x)
+                                            format_func=lambda x: "{}".format(key_values.get(x),x)
                                           )
         for column in to_filter_columns:
             left, right = st.columns((1, 20))
