@@ -32,13 +32,12 @@ def smi_to_status(term: str) -> str:
             ret_val=term
     return ret_val
 
-st.session_state.search_value=""
+
 
 def highlight(x):
     c1 = 'background-color: red'
     c2 = 'background-color: white'
-    if st.session_state.search_value:
-        checklist = df['title'] == st.session_state.search_value
+    checklist = df['title'] == 'API Accès libre'
     df1 = pd.DataFrame(df.where(checklist, c1, c2), index=x.index, columns=x.columns)
     return df1
     
