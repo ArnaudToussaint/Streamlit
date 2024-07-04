@@ -26,6 +26,18 @@ def smi_to_png(img: str) -> str:
     real_url = base_url+img
     return real_url
 
+def smi_to_status(term: str) -> str:
+match term:
+    case "closed":
+         ret_val=":red_circle:"
+    case "semi_open":
+         ret_val=":large_orange_circle:"
+    case "open":
+         ret_val=":large_green_circle:"
+    case _:
+        ret_val=term
+    return ret_val
+
 #st.write("Start FOR")
 #for element in response: 
 #  for value in response[7]:  #response['Name_OF_YOUR_KEY/ELEMENT']:
@@ -35,6 +47,7 @@ def smi_to_png(img: str) -> str:
 df = pd.DataFrame(response)
 df["logo"] = df["logo"].apply(smi_to_png)
 df["path"] = df["path"].apply(smi_to_png)
+df["openness"] = df["openness"].apply(smi_to_status)
 
 col1, col2 = st.columns(2)
 
