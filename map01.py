@@ -31,7 +31,7 @@ except:
   st.write("TRY1: An exception occurred")
         
 try:
-  df_contour=df["contour"].[0]
+  df_contour=df["contour"]
   st.dataframe(df_contour)
 except:
   st.write("TRY2: An exception occurred")
