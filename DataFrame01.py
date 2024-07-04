@@ -69,6 +69,7 @@ df["openness"] = df["openness"].apply(smi_to_status)
 #with col2:
 st.header("API officielles Gouv.fr")
 df = df.sort_values(by="owner", ascending=True)
+ss.df = df.copy
 
 if "filters_options" not in ss:
     df = pd.DataFrame(response)
@@ -79,7 +80,8 @@ def apply_filters():
     st.write('Apply filters:'+ss.owners)
     ss.filters_options = ss.owners
     if ss.filters_options:
-        ss.df = ss.df[ss.df.loc[['owner'] == ss.owners]]
+        ss.df = df[df.loc[['owner'] == ss.owners]]
+        df = ss.df
 
 owners = df['owner'].drop_duplicates()
 owner_choice = st.sidebar.selectbox('Selection propriétaire:', owners, on_change=apply_filters, key='owners')
