@@ -31,16 +31,7 @@ def smi_to_status(term: str) -> str:
         case _:
             ret_val=term
     return ret_val
-
-
-
-def highlight(x):
-    c1 = 'background-color: red'
-    c2 = 'background-color: green'
-    checklist = df['title'] == 'API Accès libre'
-    df1 = pd.DataFrame(df.where(checklist, c1, c2), index=x.index, columns=x.columns)
-    return df1
-    
+   
 def column_name(tem: str) -> str:
     match term:
         case "title":
@@ -158,13 +149,8 @@ df = pd.DataFrame(response)
 df["logo"] = df["logo"].apply(smi_to_png)
 df["path"] = df["path"].apply(smi_to_png)
 df["openness"] = df["openness"].apply(smi_to_status)
-
-#df = pd.read_csv(data_url)
-#st.dataframe(filter_dataframe(df))
-
     
 df_display=filter_dataframe(df)
-df_display.style.apply(highlight, axis=None)
 
 st.dataframe(
   #data=df, 
