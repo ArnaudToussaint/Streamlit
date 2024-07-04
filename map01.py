@@ -5,7 +5,7 @@ import numpy as np
 import json
 import requests
 
-st.set_page_config(page_title="Test", layout='wide')
+st.set_page_config(page_title="Test MAP", layout='wide')
 
 data_url='https://geo.api.gouv.fr/communes?codePostal=78260&fields=nom,code,codesPostaux,centre,surface,contour,bbox,codeDepartement,departement,codeRegion,region,population,zone&format=json&geometry=centre'
 response = requests.get(data_url).json()
@@ -13,7 +13,7 @@ response = requests.get(data_url).json()
 df = pd.DataFrame(response)
 
 st.dataframe(
-  data=df.bbox(), 
+  data=df, 
   #width=None, 
   #height=None, 
   #*, 
