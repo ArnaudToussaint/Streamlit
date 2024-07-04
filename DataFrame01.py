@@ -79,8 +79,11 @@ if "filters_options" not in ss:
 def apply_filters():
     st.write('Apply filters:'+ss.owners)
     ss.filters_options = ss.owners
+    df = df.copy()
     if ss.filters_options:
-        ss.df = ss.df[ss.df.loc[['owner'] == ss.owners]]
+        #ss.df = ss.df[ss.df.loc[['owner'] == ss.owners]]
+        df = df[df['owner'].astype(str).str.contains(ss.filters_options)]
+    return df
 
 owners = df['owner'].drop_duplicates()
 owner_choice = st.sidebar.selectbox('Selection propriétaire:', owners, on_change=apply_filters, key='owners')
