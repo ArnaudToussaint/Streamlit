@@ -8,7 +8,7 @@ import json
 def find(element, JSON, path, all_paths):    
   if element in JSON:
     path = path + element + ' = ' + JSON[element].encode('utf-8')
-    print path
+    st.write(path)
     all_paths.append(path)
   for key in JSON:
     if isinstance(JSON[key], dict):
