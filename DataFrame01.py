@@ -36,7 +36,7 @@ def smi_to_status(term: str) -> str:
              ret_val=":large_green_circle:"
         case _:
             ret_val=term
-        return ret_val
+    return ret_val
 
 #st.write("Start FOR")
 #for element in response: 
