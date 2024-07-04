@@ -151,7 +151,8 @@ df["path"] = df["path"].apply(smi_to_png)
 df["openness"] = df["openness"].apply(smi_to_status)
     
 df_display=filter_dataframe(df)
-
+#lambda x: "{}".format(key_values.get(x),x)
+#"title".format(key_values.get(x),x)
 st.dataframe(
   #data=df, 
   data=df_display, 
@@ -162,7 +163,7 @@ st.dataframe(
   hide_index=True, 
   column_order=("logo","owner","title","openness","tagline","path","datapass_link","slug","owner_acronym","datagouv_uuid"), 
   column_config={
-      "title": st.column_config.TextColumn("API"),
+      "title": st.column_config.TextColumn("title".format(key_values.get(x),x)),
       "owner": st.column_config.TextColumn("Propriétaire"),
       "openness": st.column_config.TextColumn("Statut"),
       "tagline": st.column_config.TextColumn("Définition"),
