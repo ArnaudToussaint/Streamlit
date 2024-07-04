@@ -61,13 +61,13 @@ with col2:
       #height=None, 
       #*, 
       use_container_width=True, 
-      hide_index=None, 
-      column_order=None, 
+      hide_index=True, 
+      column_order={"logo","owner","title","openness","tagline","Définition","URL","owner_acronym","datagouv_uuid","slug"}, 
       #column_config=None, 
       column_config={
           "path": st.column_config.LinkColumn( "Définition", help="Official link" ),
           "logo": st.column_config.ImageColumn( "Logo", help="API's logo" ),
-        "datapass_link": st.column_config.LinkColumn( "URL", help="Official link" )
+          "datapass_link": st.column_config.LinkColumn( "URL", help="Official link" )
       },  
       key=None, 
       on_select="ignore", 
