@@ -176,3 +176,17 @@ st.dataframe(
   key=None, 
   on_select="ignore", 
   selection_mode="multi-row")
+
+cell_hover = {  # for row hover use <tr> instead of <td>
+    'selector': 'tr:hover',
+    'props': [('background-color', '#ffffb3')]
+}
+index_names = {
+    'selector': '.index_name',
+    'props': 'font-style: italic; color: darkgrey; font-weight:normal;'
+}
+headers = {
+    'selector': 'th:not(.index_name)',
+    'props': 'background-color: #000066; color: white;'
+}
+st.set_table_styles([cell_hover, index_names, headers])
