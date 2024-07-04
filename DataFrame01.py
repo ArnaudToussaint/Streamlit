@@ -65,22 +65,25 @@ df["openness"] = df["openness"].apply(smi_to_status)
 #      on_select="ignore",        
 #      selection_mode="multi-row")
 #with col2:
-st.header("Updated JSON")
+st.header("API officielles Gouv.fr")
 df = df.sort_values(by="owner", ascending=True)
 
 owners = df['owner'].drop_duplicates()
-owner_choice = st.sidebar.selectbox('Select owner:', owners)
+owner_choice = st.sidebar.selectbox('Selection propriétaire:', owners)
+
+titles = df['owner'].loc[df['title'] = owner_choice]
+title_choice = st.sidebar.selectbox('Selection API', titles)
 
 st.dataframe(
   data=df, 
   #width=None, 
-  #height=None, 
+  height=None, 
   #*, 
   use_container_width=True, 
   hide_index=True, 
   column_order=("logo","owner","title","openness","tagline","path","datapass_link","slug","owner_acronym","datagouv_uuid"), 
   column_config={
-      "title": st.column_config.TextColumn("Titre"),
+      "title": st.column_config.TextColumn("API"),
       "owner": st.column_config.TextColumn("Propriétaire"),
       "openness": st.column_config.TextColumn("Statut"),
       "tagline": st.column_config.TextColumn("Définition"),
