@@ -33,7 +33,7 @@ except:
         
 try:
   df_contour=df.loc['contour']
-  st.dataframe(df_contour=df)
+  st.dataframe(df_contour)
 except:
   st.write("TRY2: An exception occurred")
   
