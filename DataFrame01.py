@@ -21,7 +21,6 @@ response = requests.get(url3).json()
 # + JSON value / img:  /images/api-logo/mtes.png
 @st.cache_data
 def smi_to_png(img: str) -> str:
-    #"""Returns molecular image as data URI."""
     base_url = 'https://api.gouv.fr'
     real_url = base_url+img
     return real_url
@@ -77,15 +76,14 @@ with col2:
       use_container_width=True, 
       hide_index=True, 
       column_order=("logo","owner","title","openness","tagline","path","datapass_link","slug","owner_acronym","datagouv_uuid"), 
-      #column_config=None, 
       column_config={
           "title": st.column_config.TextColumn("Titre"),
           "owner": st.column_config.TextColumn("Propriétaire"),
           "openness": st.column_config.TextColumn("Statut"),
           "tagline": st.column_config.TextColumn("Définition"),
-          "path": st.column_config.LinkColumn("Détail", help="Official link" ),
-          "logo": st.column_config.ImageColumn("Logo", help="API's logo" ),
-          "datapass_link": st.column_config.LinkColumn("URL", help="Official link" )
+          "path": st.column_config.LinkColumn("Détail", help="Official Details link"),
+          "logo": st.column_config.ImageColumn("Logo", help="Owner's logo"),
+          "datapass_link": st.column_config.LinkColumn("URL", help="Official link")
       },  
       key=None, 
       on_select="ignore", 
