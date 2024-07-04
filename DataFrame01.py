@@ -21,7 +21,7 @@ response = requests.get(url3).json()
 # + JSON value / img:  /images/api-logo/mtes.png
 @st.cache_data
 def smi_to_png(img: str) -> str:
-    """Returns molecular image as data URI."""
+    #"""Returns molecular image as data URI."""
     base_url = 'https://api.gouv.fr'
     real_url = base_url+img
     return real_url
@@ -34,6 +34,7 @@ def smi_to_png(img: str) -> str:
 
 df = pd.DataFrame(response)
 df["logo"] = df["logo"].apply(smi_to_png)
+df["path"] = df["path"].apply(smi_to_png)
 
 col1, col2 = st.columns(2)
 
