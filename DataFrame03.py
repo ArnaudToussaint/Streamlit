@@ -61,7 +61,8 @@ key_values = {
     "logo":"Logo",
     "datapass_link":"URL",
     "owner_acronym":"ID Propriétaire",
-    "datagouv_uuid":"UUID"
+    "datagouv_uuid":"UUID",
+    "slug":"API Tag"
 }
 
 def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
