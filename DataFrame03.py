@@ -36,7 +36,7 @@ def smi_to_status(term: str) -> str:
 
 def highlight(x):
     c1 = 'background-color: red'
-    c2 = 'background-color: white'
+    c2 = 'background-color: green'
     checklist = df['title'] == 'API Accès libre'
     df1 = pd.DataFrame(df.where(checklist, c1, c2), index=x.index, columns=x.columns)
     return df1
