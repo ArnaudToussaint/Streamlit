@@ -27,12 +27,11 @@ st.dataframe(
 
 try:
   st.write(response)
-  st.write(response['contour'])
 except:
   st.write("TRY1: An exception occurred")
         
 try:
-  df_contour=df["contour"]
+  df_contour=df["contour"].[0]
   st.dataframe(df_contour)
 except:
   st.write("TRY2: An exception occurred")
@@ -44,7 +43,7 @@ except:
 #    "col4": np.random.rand(1000, 4).tolist(),
 #})
 
-#st.map(df,
+#st.map(df_contour,
 #    latitude='col1',
 #    longitude='col2'
 #    )
