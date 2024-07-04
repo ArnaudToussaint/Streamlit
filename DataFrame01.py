@@ -62,7 +62,7 @@ with col2:
       #*, 
       use_container_width=True, 
       hide_index=True, 
-      column_order={"logo","owner","title","openness","tagline","Définition","URL","owner_acronym","datagouv_uuid","slug"}, 
+      column_order=("logo","owner","title","openness","tagline","Définition","URL","owner_acronym","datagouv_uuid","slug"), 
       #column_config=None, 
       column_config={
           "path": st.column_config.LinkColumn( "Définition", help="Official link" ),
