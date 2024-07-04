@@ -71,13 +71,15 @@ st.header("API officielles Gouv.fr")
 df = df.sort_values(by="owner", ascending=True)
 
 if "filters_options" not in ss:
+    df = pd.DataFrame(response)
+    df = df.sort_values(by="owner", ascending=True)
     ss.filters_options = ""
 
 def apply_filters(filters):
     st.write('Apply filters:'+filters)
     ss.filters_options = filters
     if ss.filters_options != "":
-        df[df.loc[['title'] == ss.filters_options]
+        df = df[df.loc[['title'] == ss.filters_options]]
 
 owners = df['owner'].drop_duplicates()
 owner_choice = st.sidebar.selectbox('Selection propriétaire:', owners)
