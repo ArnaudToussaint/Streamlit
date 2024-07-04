@@ -71,7 +71,7 @@ df = df.sort_values(by="owner", ascending=True)
 owners = df['owner'].drop_duplicates()
 owner_choice = st.sidebar.selectbox('Selection propriétaire:', owners)
 
-titles = df['owner'].loc[df['title'] = owner_choice]
+titles = df['owner'].loc[df['title'] == owner_choice]
 title_choice = st.sidebar.selectbox('Selection API', titles)
 
 st.dataframe(
