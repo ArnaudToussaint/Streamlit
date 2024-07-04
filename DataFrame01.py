@@ -48,47 +48,46 @@ df["logo"] = df["logo"].apply(smi_to_png)
 df["path"] = df["path"].apply(smi_to_png)
 df["openness"] = df["openness"].apply(smi_to_status)
 
-col1, col2 = st.columns(2)
+#col1, col2 = st.columns(2)
+#with col1:                       
+#    st.header("Original JSON")   
+#    st.dataframe(                
+#      data=response,             
+#      #width=None,               
+#      #height=None,              
+#      #*,                        
+#      use_container_width=True,  
+#      hide_index=None,           
+#      column_order=None,         
+#      #column_config=None,       
+#      column_config=None,        
+#      key=None,                  
+#      on_select="ignore",        
+#      selection_mode="multi-row")
+#with col2:
+st.header("Updated JSON")
+df = df.sort_values(by="owner", ascending=True)
 
-with col1:
-    st.header("Original JSON")
-    st.dataframe(
-      data=response, 
-      #width=None, 
-      #height=None, 
-      #*, 
-      use_container_width=True, 
-      hide_index=None, 
-      column_order=None, 
-      #column_config=None, 
-      column_config=None,  
-      key=None, 
-      on_select="ignore", 
-      selection_mode="multi-row")
-with col2:
-    st.header("Updated JSON")
-    df = df.sort_values(by="owner", ascending=True)
+owners = df['owner'].drop_duplicates()
+owner_choice = st.sidebar.selectbox('Select owner:', owners)
 
-    owners = df['owner'].drop_duplicates()
-    owner_choice = st.sidebar.selectbox('Select owner:', owners)
-    
-    st.dataframe(
-      data=df, 
-      #width=None, 
-      #height=None, 
-      #*, 
-      use_container_width=True, 
-      hide_index=True, 
-      column_order=("logo","owner","title","openness","tagline","path","datapass_link","slug","owner_acronym","datagouv_uuid"), 
-      column_config={
-          "title": st.column_config.TextColumn("Titre"),
-          "owner": st.column_config.TextColumn("Propriétaire"),
-          "openness": st.column_config.TextColumn("Statut"),
-          "tagline": st.column_config.TextColumn("Définition"),
-          "path": st.column_config.LinkColumn("Détail", help="Official Details link"),
-          "logo": st.column_config.ImageColumn("Logo", help="Owner's logo"),
-          "datapass_link": st.column_config.LinkColumn("URL", help="Official link")
-      },  
-      key=None, 
-      on_select="ignore", 
-      selection_mode="multi-row")
+st.dataframe(
+  data=df, 
+  #width=None, 
+  #height=None, 
+  #*, 
+  use_container_width=True, 
+  hide_index=True, 
+  column_order=("logo","owner","title","openness","tagline","path","datapass_link","slug","owner_acronym","datagouv_uuid"), 
+  column_config={
+      "title": st.column_config.TextColumn("Titre"),
+      "owner": st.column_config.TextColumn("Propriétaire"),
+      "openness": st.column_config.TextColumn("Statut"),
+      "tagline": st.column_config.TextColumn("Définition"),
+      "path": st.column_config.LinkColumn("Détail", help="Official Details link"),
+      "logo": st.column_config.ImageColumn("Logo", help="Owner's logo"),
+      "datapass_link": st.column_config.LinkColumn("URL", help="Official link")
+  },  
+  key=None, 
+  on_select="ignore", 
+  selection_mode="multi-row")
