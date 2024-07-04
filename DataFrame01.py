@@ -75,7 +75,7 @@ if "filters_options" not in ss:
     df = df.sort_values(by="owner", ascending=True)
     ss.filters_options = ""
 
-def apply_filters(term: str):
+def apply_filters:
     st.write('Apply filters:'+ss.owners)
     ss.filters_options = ss.owners
     if ss.filters_options:
@@ -84,7 +84,7 @@ def apply_filters(term: str):
 owners = df['owner'].drop_duplicates()
 owner_choice = st.sidebar.selectbox('Selection propriétaire:', owners, on_change=apply_filters, key='owners')
 
-def make_filter_title(term: str):
+def make_filter_title:
     titles = df['owner'].loc[df['title'] == owner_choice]
     title_choice = st.sidebar.selectbox('Selection API', titles, key='titles')
 
