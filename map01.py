@@ -27,7 +27,7 @@ st.dataframe(
 
 try:
   st.write(response)
-  st.write(response.['contour'])
+  st.write(response['contour'])
 except:
   st.write("TRY1: An exception occurred")
         
