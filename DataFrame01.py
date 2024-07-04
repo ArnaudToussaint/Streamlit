@@ -55,6 +55,7 @@ with col1:
       selection_mode="multi-row")
 with col2:
     st.header("Updated JSON")
+    df = df.sort_values(by="owner", ascending=True)
     st.dataframe(
       data=df, 
       #width=None, 
