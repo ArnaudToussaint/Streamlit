@@ -25,6 +25,8 @@ st.dataframe(
   on_select="ignore", 
   selection_mode="multi-row")
 
+st.json(response,expanded=True)
+
 #df = pd.DataFrame({
 #    "col1": np.random.randn(1000) / 50 + 37.76,
 #    "col2": np.random.randn(1000) / 50 + -122.4,
