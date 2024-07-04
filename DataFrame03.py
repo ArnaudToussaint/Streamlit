@@ -59,7 +59,9 @@ key_values = {
     "tagline":"Définition",
     "path":"Détail",
     "logo":"Logo",
-    "datapass_link":"URL"
+    "datapass_link":"URL",
+    "owern_acronym":"ID Propriétaire",
+    "datagouv_uuid":"UUID"
 }
 
 def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
