@@ -5,6 +5,8 @@ import numpy as np
 import requests
 import json
 
+from streamlit import session_state as ss
+
 st.set_page_config(page_title="Test", layout='wide')
 
 #df = pd.DataFrame(np.random.randn(10, 20), columns=("col %d" % i for i in range(20)))
@@ -72,9 +74,9 @@ owners = df['owner'].drop_duplicates()
 owner_choice = st.sidebar.selectbox('Selection propriétaire:', owners)
 
 titles = df['owner'].loc[df['title'] == owner_choice]
-title_choice = st.sidebar.selectbox('Selection API', titles, on_change=apply_filters)
+title_choice = st.sidebar.selectbox('Selection API', titles, on_change=apply_filters, args=(title_choice))
 
-def apply_filters():
+def apply_filters(filters):
     st.write('Apply filters')
 
 st.dataframe(
