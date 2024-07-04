@@ -28,7 +28,7 @@ def smi_to_png(img: str) -> str:
 def smi_to_status(term: str) -> str:
     match term:
         case "closed":
-             ret_val="🔴"
+             ret_val=":100:" #"🔴"
         case "semi_open":
              ret_val="🟠"
         case "open":
