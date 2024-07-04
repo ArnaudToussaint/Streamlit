@@ -25,7 +25,8 @@ st.dataframe(
   on_select="ignore", 
   selection_mode="multi-row")
 
-st.json(response,expanded=True)
+json_part=response[0].contour
+st.json(json_part,expanded=True)
 
 #df = pd.DataFrame({
 #    "col1": np.random.randn(1000) / 50 + 37.76,
