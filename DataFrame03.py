@@ -32,7 +32,7 @@ def smi_to_status(term: str) -> str:
             ret_val=term
     return ret_val
 
-def column_name(tem:str) -> str:
+def column_name(tem: str) -> str:
     match term:
         case "title":
             ret_val="API"
