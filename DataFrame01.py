@@ -39,9 +39,6 @@ def smi_to_status(term: str) -> str:
             ret_val=term
     return ret_val
 
-def apply_filters(filters):
-    st.write('Apply filters')
-
 #st.write("Start FOR")
 #for element in response: 
 #  for value in response[7]:  #response['Name_OF_YOUR_KEY/ELEMENT']:
@@ -73,13 +70,20 @@ df["openness"] = df["openness"].apply(smi_to_status)
 st.header("API officielles Gouv.fr")
 df = df.sort_values(by="owner", ascending=True)
 
+if "filters_options" not in ss:
+    ss.filters_options = ""
 
+def apply_filters(filters):
+    st.write('Apply filters:'+filters)
+    ss.filters_options = filters
+    if ss.filters_options != "":
+        df[df.loc[['title'] == ss.filters_options]
 
 owners = df['owner'].drop_duplicates()
 owner_choice = st.sidebar.selectbox('Selection propriétaire:', owners)
 
 titles = df['owner'].loc[df['title'] == owner_choice]
-title_choice = st.sidebar.selectbox('Selection API', titles, on_change=apply_filters, args=(title_choice))
+title_choice = st.sidebar.selectbox('Selection API', titles, on_change=apply_filters, args=(ss.filters_options))
 
 
 
