@@ -81,7 +81,11 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     modification_container = st.container()
 
     with modification_container:
-        to_filter_columns = st.multiselect("Filter dataframe on", options=df.columns, format_func=column_name)
+        #to_filter_columns = st.multiselect("Filter dataframe on", options=df.columns, format_func=column_name)
+        to_filter_columns = st.multiselect("Filter dataframe on", 
+                                            options=df.columns, 
+                                           format_func=lambda x: "{}: {}".format(column_name(x),x)
+                                          )
         for column in to_filter_columns:
             left, right = st.columns((1, 20))
             # Treat columns with < 10 unique values as categorical
