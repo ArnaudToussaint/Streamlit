@@ -14,6 +14,19 @@ import json
 st.set_page_config(page_title="Test", layout='wide')
 st.title("API officielles Gouv.fr")
 
+key_values = {
+    "title": "API",
+    "owner": "Propriétaire",
+    "openness": "Statut",
+    "tagline":"Définition",
+    "path":"Détail",
+    "logo":"Logo",
+    "datapass_link":"URL",
+    "owner_acronym":"ID Propriétaire",
+    "datagouv_uuid":"UUID",
+    "slug":"API Tag"
+}
+
 @st.cache_data
 def smi_to_png(img: str) -> str:
     base_url = 'https://api.gouv.fr'
@@ -32,7 +45,7 @@ def smi_to_status(term: str) -> str:
             ret_val=term
     return ret_val
    
-def column_name(tem: str) -> str:
+def column_name(term: str) -> str:
     match term:
         case "title":
             ret_val="API"
@@ -50,20 +63,8 @@ def column_name(tem: str) -> str:
             ret_val="URL"
         case _:
             ret_val=term
+    ret_val = key_values.get(term)
     return ret_val
-
-key_values = {
-    "title": "API",
-    "owner": "Propriétaire",
-    "openness": "Statut",
-    "tagline":"Définition",
-    "path":"Détail",
-    "logo":"Logo",
-    "datapass_link":"URL",
-    "owner_acronym":"ID Propriétaire",
-    "datagouv_uuid":"UUID",
-    "slug":"API Tag"
-}
 
 def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     """
@@ -163,7 +164,7 @@ st.dataframe(
   hide_index=True, 
   column_order=("logo","owner","title","openness","tagline","path","datapass_link","slug","owner_acronym","datagouv_uuid"), 
   column_config={
-      "title": st.column_config.TextColumn("title".format(key_values.get(x),x)),
+      "title": st.column_config.TextColumn(column_name("title")),
       "owner": st.column_config.TextColumn("Propriétaire"),
       "openness": st.column_config.TextColumn("Statut"),
       "tagline": st.column_config.TextColumn("Définition"),
