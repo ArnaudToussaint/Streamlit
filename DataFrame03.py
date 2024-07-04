@@ -60,7 +60,7 @@ key_values = {
     "path":"Détail",
     "logo":"Logo",
     "datapass_link":"URL",
-    "owern_acronym":"ID Propriétaire",
+    "owner_acronym":"ID Propriétaire",
     "datagouv_uuid":"UUID"
 }
 
