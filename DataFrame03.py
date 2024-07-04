@@ -97,7 +97,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
         #to_filter_columns = st.multiselect("Filter dataframe on", options=df.columns, format_func=column_name)
         to_filter_columns = st.multiselect("Filter dataframe on", 
                                             options=df.columns, 
-                                           format_func=lambda x: "{}: {}".format(key_values.get(x),x)
+                                           format_func=lambda x: "{}".format(key_values.get(x),x)
                                           )
         for column in to_filter_columns:
             left, right = st.columns((1, 20))
