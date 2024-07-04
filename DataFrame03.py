@@ -32,6 +32,16 @@ def smi_to_status(term: str) -> str:
             ret_val=term
     return ret_val
 
+st.session_state.search_value=""
+
+def highlight(x):
+    c1 = 'background-color: red'
+    c2 = 'background-color: white'
+    if st.session_state.search_value:
+        checklist = df['title'] == st.session_state.search_value
+    df1 = pd.DataFrame(df.where(checklist, c1, c2), index=x.index, columns=x.columns)
+    return df1
+    
 def column_name(tem: str) -> str:
     match term:
         case "title":
@@ -153,7 +163,9 @@ df["openness"] = df["openness"].apply(smi_to_status)
 #df = pd.read_csv(data_url)
 #st.dataframe(filter_dataframe(df))
 
+    
 df_display=filter_dataframe(df)
+df_display.style.apply(highlight, axis=None)
 
 st.dataframe(
   #data=df, 
@@ -177,16 +189,4 @@ st.dataframe(
   on_select="ignore", 
   selection_mode="multi-row")
 
-cell_hover = {  # for row hover use <tr> instead of <td>
-    'selector': 'tr:hover',
-    'props': [('background-color', '#ffffb3')]
-}
-index_names = {
-    'selector': '.index_name',
-    'props': 'font-style: italic; color: darkgrey; font-weight:normal;'
-}
-headers = {
-    'selector': 'th:not(.index_name)',
-    'props': 'background-color: #000066; color: white;'
-}
-st.set_table_styles([cell_hover, index_names, headers])
+
