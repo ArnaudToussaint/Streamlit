@@ -68,6 +68,10 @@ with col1:
 with col2:
     st.header("Updated JSON")
     df = df.sort_values(by="owner", ascending=True)
+
+    owners = df['owner'].drop_duplicates()
+    owner_choice = st.sidebar.selectbox('Select owner:', owners)
+    
     st.dataframe(
       data=df, 
       #width=None, 
