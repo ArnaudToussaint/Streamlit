@@ -2,8 +2,9 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-import json
 import requests
+import json
+from jsonpath_ng import jsonpath, parse
 
 st.set_page_config(page_title="Test MAP", layout='wide')
 
@@ -32,8 +33,9 @@ except:
   st.write("TRY1: An exception occurred")
         
 try:
-  json_part=response[['contour']]
-  st.json(json_part,expanded=True)
+  jsonpath_expression = parse('contour[*].coordinates')
+  for match in jsonpath_expression.find(response):
+      st.write(f'coordinates: {match.value}')
 except:
   st.write("TRY2: An exception occurred")
   
