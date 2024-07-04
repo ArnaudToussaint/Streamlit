@@ -114,7 +114,7 @@ df["path"] = df["path"].apply(smi_to_png)
 df["openness"] = df["openness"].apply(smi_to_status)
 
 #df = pd.read_csv(data_url)
-st.dataframe(filter_dataframe(df))
+#st.dataframe(filter_dataframe(df))
 
 df_display=filter_dataframe(df)
 
