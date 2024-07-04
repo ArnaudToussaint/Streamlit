@@ -27,16 +27,16 @@ def smi_to_png(img: str) -> str:
     return real_url
 
 def smi_to_status(term: str) -> str:
-match term:
-    case "closed":
-         ret_val=":red_circle:"
-    case "semi_open":
-         ret_val=":large_orange_circle:"
-    case "open":
-         ret_val=":large_green_circle:"
-    case _:
-        ret_val=term
-    return ret_val
+    match term:
+        case "closed":
+             ret_val=":red_circle:"
+        case "semi_open":
+             ret_val=":large_orange_circle:"
+        case "open":
+             ret_val=":large_green_circle:"
+        case _:
+            ret_val=term
+        return ret_val
 
 #st.write("Start FOR")
 #for element in response: 
