@@ -25,7 +25,7 @@ st.dataframe(
   on_select="ignore", 
   selection_mode="multi-row")
 
-json_part=response['contour']
+json_part=response[['contour']]
 st.json(json_part,expanded=True)
 
 #df = pd.DataFrame({
