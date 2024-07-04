@@ -151,12 +151,15 @@ st.dataframe(
   column_order=("logo","owner","title","openness","tagline","path","datapass_link","slug","owner_acronym","datagouv_uuid"), 
   column_config={
       "title": st.column_config.TextColumn(column_name("title")),
-      "owner": st.column_config.TextColumn("Propriétaire"),
-      "openness": st.column_config.TextColumn("Statut"),
-      "tagline": st.column_config.TextColumn("Définition"),
-      "path": st.column_config.LinkColumn("Détail", help="Official Details link"),
-      "logo": st.column_config.ImageColumn("Logo", help="Owner's logo"),
-      "datapass_link": st.column_config.LinkColumn("URL", help="Official link")
+      "owner": st.column_config.TextColumn(column_name("owner")),
+      "openness": st.column_config.TextColumn(column_name("openness")),
+      "tagline": st.column_config.TextColumn(column_name("tagline")),
+      "path": st.column_config.LinkColumn(column_name("path"), help="Official Details link"),
+      "logo": st.column_config.ImageColumn(column_name("logo"), help="Owner's logo"),
+      "datapass_link": st.column_config.LinkColumn(column_name("datapass_link"), help="Official link"),
+      "slug": st.column_config.TextColumn(column_name("slug")),
+      "owner_acronym": st.column_config.TextColumn(column_name("owner_acronym")),
+      "datagouv_uuid": st.column_config.TextColumn(column_name("datagouv_uuid"))
   },  
   key=None, 
   on_select="ignore", 
