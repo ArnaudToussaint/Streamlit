@@ -116,9 +116,11 @@ df["openness"] = df["openness"].apply(smi_to_status)
 #df = pd.read_csv(data_url)
 st.dataframe(filter_dataframe(df))
 
+df_display=filter_dataframe(df)
+
 st.dataframe(
   #data=df, 
-  data=filter_dataframe(df), 
+  data=df_display, 
   #width=None, 
   height=None, 
   #*, 
