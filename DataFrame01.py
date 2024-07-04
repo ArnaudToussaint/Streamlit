@@ -84,7 +84,7 @@ def apply_filters(filters):
 owners = df['owner'].drop_duplicates()
 owner_choice = st.sidebar.selectbox('Selection propriétaire:', owners, on_change=make_filter_title)
 
-def make_filter_title:
+def make_filter_title():
     titles = df['owner'].loc[df['title'] == owner_choice]
     title_choice = st.sidebar.selectbox('Selection API', titles, on_change=apply_filters, args=(ss.filters_options))
 
