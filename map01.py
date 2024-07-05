@@ -5,6 +5,8 @@ import numpy as np
 import requests
 import json
 
+import plotly.express as px
+
 def find(element, JSON, path, all_paths):    
   if element in JSON:
     path = path + element + ' = ' + JSON[element].encode('utf-8')
