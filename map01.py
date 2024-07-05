@@ -23,7 +23,7 @@ def read_json(json_data):
         meta=[
             'nom',
             ['contour', 'coordinates'], 
-            ['contour', 'type', 'tel']
+            ['contour', 'type']
         ]
     )
   st.write(df_json)
@@ -35,7 +35,7 @@ response = requests.get(data_url).json()
 
 df = pd.DataFrame(response)
 
-read_json(pd.DataFrame(response))
+read_json(df)
 
 st.dataframe(
   data=df, 
