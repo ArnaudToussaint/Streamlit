@@ -38,7 +38,7 @@ st.dataframe(
         
 try:
   df_contour=df["contour"]
-  st.write(df_contour.type)
+  st.write(df_contour['type'])
   st.dataframe(df_contour)
 
   all_paths = []
