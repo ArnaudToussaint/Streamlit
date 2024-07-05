@@ -28,7 +28,7 @@ response = requests.get(data_url).json()
 df = pd.DataFrame(response)
 
 #st.write(read_json(response))
-st.write(df["contour"])
+st.write(read_json(df["contour"]))
 
 st.dataframe(
   data=df, 
@@ -45,14 +45,14 @@ st.dataframe(
 
 #st.write(response)
         
-try:
-  df_contour=df["contour"]
-  loc_type=df_contour.loc[df_contour['type']]
-  st.write(loc_type)
-  st.dataframe(df_contour)
- 
-except:
-  st.write("An exception occurred")
+#try:
+#  df_contour=df["contour"]
+#  loc_type=df_contour.loc[df_contour['type']]
+#  st.write(loc_type)
+#  st.dataframe(df_contour)
+# 
+#except:
+#  st.write("An exception occurred")
   
 #df = pd.DataFrame({
 #    "col1": np.random.randn(1000) / 50 + 37.76,
