@@ -42,8 +42,8 @@ try:
   st.write(lat)
   st.write(lon)
   st.map(
-    'latitude'=lat,
-    'longitude'=lon
+    'latitude':lat,
+    'longitude':lon
     )
 except:
   st.write("An exception occurred")
