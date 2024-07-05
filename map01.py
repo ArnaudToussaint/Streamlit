@@ -29,8 +29,8 @@ try:
   st.write(data['nom'])
   st.write(data['codesPostaux'])
   st.write(data['centre'])
-  #df_contour=df["contour"]
-  st.write(data['contour']['coordinates'])
+  df_contour=data['contour']
+  st.write(df_contour['coordinates'])
 except:
   st.write("An exception occurred")
 
