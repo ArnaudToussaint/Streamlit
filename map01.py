@@ -37,8 +37,8 @@ try:
   #st.map(highlight)
   coords = response[0]["contour"]["coordinates"][0]
   df = pd.DataFrame(response[0]["contour"]["coordinates"][0])
-  lat=df[0]
-  lon=df[1]
+  lat=df[1]
+  lon=df[0]
   st.write(lat)
   st.write(lon)
   highlight = pd.DataFrame({
