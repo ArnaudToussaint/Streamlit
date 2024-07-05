@@ -27,9 +27,7 @@ df = pd.DataFrame(response)
 try: 
   data = pd.DataFrame(response)
   st.write(data['nom'])
-  st.write(data['codesPostaux'])
-  st.write(data['centre'])
-  df_contour=data['contour']
+  df_contour=pd.DataFrame(data['contour'])
   st.write(df_contour['coordinates'])
 except:
   st.write("An exception occurred")
