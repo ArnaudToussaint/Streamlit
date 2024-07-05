@@ -14,21 +14,6 @@ def find(element, JSON, path, all_paths):
     if isinstance(JSON[key], dict):
       find(element, JSON[key],path + key + '.',all_paths)
 
-#https://discuss.streamlit.io/t/how-to-normalize-a-json-file-when-using-streamlit-file-uploader/15689
-def old_read_json(json_data):
-  json=pd.read_json(json_data)
-  df_json=pd.json_normalize(
-                            json,
-                            record_path =['contour'], 
-                            meta=[
-                                  'nom',
-                                  ['contour', 'coordinates'], 
-                                  ['contour', 'type']
-                                ]
-                            )
-  #st.write(df_json)
-  return df_json
-
 def read_json(json_data):
   json_content=json.loads(response)
   ret_val = 'OK'
@@ -63,10 +48,7 @@ try:
   loc_type=df_contour.loc[df_contour['type']]
   st.write(loc_type)
   st.dataframe(df_contour)
-
-  #all_paths = []
-  #find("coordinates",response,'',all_paths)
-  
+ 
 except:
   st.write("An exception occurred")
   
