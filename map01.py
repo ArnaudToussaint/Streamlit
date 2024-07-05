@@ -34,11 +34,13 @@ try:
     'latitude': [37.7749],
     'longitude': [-122.4194]
   })
-  st.map(highlight)
+  #st.map(highlight)
   coords = response[0]["contour"]["coordinates"][0]
   df = pd.DataFrame(response[0]["contour"]["coordinates"][0])
   lat=df[0]
   lon=df[1]
+  st.write(lat)
+  st.write(lon)
   st.map(
     latitude=lat,
     longitude=lon
