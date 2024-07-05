@@ -29,15 +29,20 @@ try:
   st.write(data['nom'])
   x = response[0]["centre"]["coordinates"]
   st.write(x)
-  st.map(
-    latitude=response[0]["centre"]["coordinates"][0],
-    longitude=response[0]["centre"]["coordinates"][1]
-    )
+
   highlight = pd.DataFrame({
     'latitude': [37.7749],
     'longitude': [-122.4194]
   })
   st.map(highlight)
+  coords = response[0]["contour"]["coordinates"][0]
+  df = pd.DataFrame(response[0]["contour"]["coordinates"][0])
+  lat=df[0]
+  lon=df[1]
+  st.map(
+    latitude=lat,
+    longitude=lon
+    )
 except:
   st.write("An exception occurred")
 
