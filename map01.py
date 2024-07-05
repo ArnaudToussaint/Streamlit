@@ -5,7 +5,8 @@ import numpy as np
 import requests
 import json
 
-import plotly.express as px
+import folium
+from streamlit_folium import st_folium
 
 def find(element, JSON, path, all_paths):    
   if element in JSON:
