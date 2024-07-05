@@ -37,8 +37,7 @@ try:
     'latitude': [2.1095],
     'longitude': [48.9817]
   })
-  data2=x
-  st.map(data2, highlight)
+  st.map(highlight)
 except:
   st.write("An exception occurred")
 
