@@ -15,8 +15,8 @@ def find(element, JSON, path, all_paths):
       find(element, JSON[key],path + key + '.',all_paths)
 
 def read_json(json_data):
-  json_content=json.loads(response)
-  ret_val = 'OK'
+  json_content=json.loads(json_data)
+  ret_val = json_content["nom"] #'OK'
   return ret_val
 
 st.set_page_config(page_title="Test MAP", layout='wide')
