@@ -36,7 +36,7 @@ response = requests.get(data_url).json()
 
 df = pd.DataFrame(response)
 
-read_json(data_url)
+read_json(response)
 
 st.dataframe(
   data=df, 
