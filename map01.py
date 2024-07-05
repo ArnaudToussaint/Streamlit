@@ -29,7 +29,7 @@ try:
   st.write(data['nom'])
   x = response[0]["centre"]["coordinates"]
   st.write(x)
-  st.map(response,
+  st.map(
     latitude=response[0]["centre"]["coordinates"][0],
     longitude=response[0]["centre"]["coordinates"][1]
     )
