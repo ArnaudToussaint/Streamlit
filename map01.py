@@ -16,7 +16,7 @@ def find(element, JSON, path, all_paths):
 
 #https://discuss.streamlit.io/t/how-to-normalize-a-json-file-when-using-streamlit-file-uploader/15689
 def read_json(json_data):
-  json=pd.read_json(file)
+  json=pd.read_json(json_data)
   df_json=pd.json_normalize(
                             json,
                             record_path =['contour'], 
