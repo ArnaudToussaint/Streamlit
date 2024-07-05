@@ -27,7 +27,7 @@ df = pd.DataFrame(response)
 try: 
   data = pd.DataFrame(response)
   st.write(data['nom'])
-  x = data[0]["centre"]["coordinates"][0]
+  x = response[0]["centre"]["coordinates"][0]
   st.write(x)
 except:
   st.write("An exception occurred")
