@@ -17,7 +17,7 @@ def find(element, JSON, path, all_paths):
 def read_json(json_data):
   #json_content=json.loads(json_data)
   json_content=json_data
-  ret_val = json_content["nom"] #'OK'
+  ret_val = json_content["type"] #'OK'
   return ret_val
 
 st.set_page_config(page_title="Test MAP", layout='wide')
@@ -27,7 +27,8 @@ response = requests.get(data_url).json()
 
 df = pd.DataFrame(response)
 
-st.write(read_json(response))
+#st.write(read_json(response))
+st.write(df["contour"])
 
 st.dataframe(
   data=df, 
