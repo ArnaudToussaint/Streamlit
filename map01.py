@@ -15,7 +15,7 @@ def find(element, JSON, path, all_paths):
       find(element, JSON[key],path + key + '.',all_paths)
 
 #https://discuss.streamlit.io/t/how-to-normalize-a-json-file-when-using-streamlit-file-uploader/15689
-def read_json(json_data):
+def old_read_json(json_data):
   json=pd.read_json(json_data)
   df_json=pd.json_normalize(
                             json,
@@ -29,6 +29,11 @@ def read_json(json_data):
   #st.write(df_json)
   return df_json
 
+def read_json(json_data):
+  json_content=json.loads(response)
+  ret_val = 'OK'
+  return ret_val
+
 st.set_page_config(page_title="Test MAP", layout='wide')
 
 data_url='https://geo.api.gouv.fr/communes?codePostal=78260&fields=nom,code,codesPostaux,centre,surface,contour,bbox,codeDepartement,departement,codeRegion,region,population,zone&format=json&geometry=centre'
@@ -36,7 +41,7 @@ response = requests.get(data_url).json()
 
 df = pd.DataFrame(response)
 
-st.write(read_json(df))
+st.write(read_json(response))
 
 st.dataframe(
   data=df, 
