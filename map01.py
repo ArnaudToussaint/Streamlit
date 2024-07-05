@@ -34,8 +34,8 @@ try:
     longitude=response[0]["centre"]["coordinates"][1]
     )
   highlight = pd.DataFrame({
-    'latitude': [2.1095],
-    'longitude': [48.9817]
+    'latitude': [37.7749],
+    'longitude': [-122.4194]
   })
   st.map(highlight)
 except:
