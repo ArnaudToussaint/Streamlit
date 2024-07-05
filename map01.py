@@ -32,6 +32,8 @@ try:
 except:
   st.write("An exception occurred")
 
+
+st.subheader('Main DataFrame')
 st.dataframe(
   data=df, 
   #width=None, 
