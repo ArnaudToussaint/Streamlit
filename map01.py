@@ -14,10 +14,12 @@ def find(element, JSON, path, all_paths):
     if isinstance(JSON[key], dict):
       find(element, JSON[key],path + key + '.',all_paths)
 
-def read_json(json_data):
+def read_json(json_data,label):
   #json_content=json.loads(json_data)
   json_content=json_data
-  ret_val = json_content["type"] #'OK'
+  loc = json_data.index.get_loc(label)
+  ret_val=json_data._values[loc]
+  #ret_val = json_content["type"] #'OK'
   return ret_val
 
 st.set_page_config(page_title="Test MAP", layout='wide')
@@ -27,8 +29,8 @@ response = requests.get(data_url).json()
 
 df = pd.DataFrame(response)
 
-#st.write(read_json(response))
-st.write(read_json(df["contour"]))
+st.write(read_json(response,"type"))
+#st.write(read_json(df["contour"]))
 
 st.dataframe(
   data=df, 
