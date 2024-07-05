@@ -28,24 +28,15 @@ try:
   data = pd.DataFrame(response)
   st.write(data['nom'])
   x = response[0]["centre"]["coordinates"]
-  st.write(x)
 
-  #highlight = pd.DataFrame({
-  #  'latitude': [37.7749],
-  #  'longitude': [-122.4194]
-  #})
-  #st.map(highlight)
   coords = response[0]["contour"]["coordinates"][0]
   df = pd.DataFrame(response[0]["contour"]["coordinates"][0])
-  lat=df[1]
-  lon=df[0]
-  st.write(lat)
-  st.write(lon)
+
   highlight = pd.DataFrame({
     'latitude':df[1],
     'longitude':df[0]
     })
-  st.map(highlight)
+  st.map(highlight, size=10, color='#006699')
 except:
   st.write("An exception occurred")
 
