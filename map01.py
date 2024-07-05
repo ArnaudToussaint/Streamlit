@@ -42,8 +42,8 @@ try:
   st.write(lat)
   st.write(lon)
   highlight = pd.DataFrame({
-    'latitude':lat,
-    'longitude':lon
+    'latitude':df[1],
+    'longitude':df[0]
     })
   st.map(highlight)
 except:
