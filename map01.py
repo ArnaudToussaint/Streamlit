@@ -16,17 +16,10 @@ def find(element, JSON, path, all_paths):
 
 #https://discuss.streamlit.io/t/how-to-normalize-a-json-file-when-using-streamlit-file-uploader/15689
 def read_json(file_url):
-  json_file = json.load(file_url)
-  df_json=pd.json_normalize(
-                            json_file,
-                            record_path =['contour'], 
-                            meta=[
-                                  'nom',
-                                  ['centre', 'type'], 
-                                  ['centre', 'type', 'coordinates']
-                                  ]
-                            )
-  st.write(df_json)  
+  data = json.loads(file_url)
+  st.write(data['nom'])
+  st.write(data['centre']['type'])
+  st.write(data['centre']['type']['coordinates'])
   return ret_val
 
 st.set_page_config(page_title="Test MAP", layout='wide')
