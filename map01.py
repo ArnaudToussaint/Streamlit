@@ -38,14 +38,15 @@ st.dataframe(
         
 try:
   df_contour=df["contour"]
-  st.write(df_contour['type'])
+  loc_type=df_contour.loc[df_contour['type']]
+  st.write(loc_type)
   st.dataframe(df_contour)
 
   all_paths = []
   find("coordinates",response,'',all_paths)
   
 except:
-  st.write("TRY2: An exception occurred")
+  st.write("An exception occurred")
   
 #df = pd.DataFrame({
 #    "col1": np.random.randn(1000) / 50 + 37.76,
