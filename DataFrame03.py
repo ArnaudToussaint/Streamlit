@@ -140,6 +140,15 @@ df["openness"] = df["openness"].apply(smi_to_status)
 df_display=filter_dataframe(df)
 #lambda x: "{}".format(key_values.get(x),x)
 #"title".format(key_values.get(x),x)
+
+df = df.sort_values(by="owner", ascending=True)
+ss.df = df.copy
+
+if "filters_options" not in ss:
+    df = pd.DataFrame(response)
+    df = df.sort_values(by="owner", ascending=True)
+    ss.filters_options = ""
+
 st.dataframe(
   #data=df, 
   data=df_display, 
