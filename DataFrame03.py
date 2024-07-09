@@ -152,10 +152,9 @@ if "filters_options" not in st.session_state:
 
 height = (len(df_display) + 1) * 35 + 3
 
-with modification_container:
-    with st.popover("DataSource infos"):
-        st.markdown("Hello World 👋")
-        st.markdown(df.info())
+with st.popover("DataSource infos"):
+    st.markdown("Hello World 👋")
+    st.markdown(df.info())
 
 st.dataframe(
   #data=df, 
