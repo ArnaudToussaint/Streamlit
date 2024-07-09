@@ -146,7 +146,7 @@ df = df.sort_values(by="owner", ascending=True)
 ss.df = df.copy
 
 if "filters_options" not in ss:
-    df = pd.DataFrame(response)
+    #df = pd.DataFrame(response)
     df = df.sort_values(by="owner", ascending=True)
     ss.filters_options = ""
 
