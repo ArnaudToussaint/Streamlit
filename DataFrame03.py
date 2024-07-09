@@ -143,12 +143,12 @@ df_display=filter_dataframe(df)
 #"title".format(key_values.get(x),x)
 
 df = df.sort_values(by="owner", ascending=True)
-ss.df = df.copy
+#ss.df = df.copy
 
-if "filters_options" not in ss:
+if "filters_options" not in st.session_state:
     #df = pd.DataFrame(response)
     df = df.sort_values(by="owner", ascending=True)
-    ss.filters_options = ""
+    st.session_state.filters_options = ""
 
 st.dataframe(
   #data=df, 
