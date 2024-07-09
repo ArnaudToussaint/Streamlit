@@ -16,6 +16,8 @@ import io
 st.set_page_config(page_title="Test", layout='wide')
 st.title("API officielles Gouv.fr")
 
+data_url = 'https://api.gouv.fr/api/v1/apis'
+
 key_values = {
     "title": "API",
     "owner": "Propriétaire",
@@ -104,6 +106,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     with modification_container:
         with st.popover("DataSource infos"):
             #st.markdown("Hello World 👋")
+            st.markdown("🌐 " & data_url)
             st.dataframe(get_df_info(df))
         to_filter_columns = st.multiselect("Filter dataframe on", 
                                             options=df.columns, 
@@ -152,7 +155,6 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 
     return df
 
-data_url = 'https://api.gouv.fr/api/v1/apis'
 response = requests.get(data_url).json()
 df = pd.DataFrame(response)
 
