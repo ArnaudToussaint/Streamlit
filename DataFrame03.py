@@ -152,9 +152,14 @@ if "filters_options" not in st.session_state:
 
 height = (len(df_display) + 1) * 35 + 3
 
+import io
+buffer = io.StringIO()
+df_display.info(buf=buffer)
+s = buffer.getvalue()
+#st.text(s)
 with st.popover("DataSource infos"):
     st.markdown("Hello World 👋")
-    df.info()
+    st.markdown(s)
 
 st.dataframe(
   #data=df, 
