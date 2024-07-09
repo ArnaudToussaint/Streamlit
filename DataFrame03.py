@@ -150,11 +150,14 @@ if "filters_options" not in st.session_state:
     df_display = df_display.sort_values(by="owner", ascending=True)
     st.session_state.filters_options = ""
 
+height = (len(df_display) + 1) * 35 + 3
+
 st.dataframe(
   #data=df, 
   data=df_display, 
   #width=None, 
-  height=None, 
+  height=height, 
+  #height=None,
   #*, 
   use_container_width=True, 
   hide_index=True, 
