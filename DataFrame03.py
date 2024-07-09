@@ -147,7 +147,7 @@ df = df.sort_values(by="owner", ascending=True)
 
 if "filters_options" not in st.session_state:
     #df = pd.DataFrame(response)
-    df = df.sort_values(by="owner", ascending=True)
+    df_display = df_display.sort_values(by="owner", ascending=True)
     st.session_state.filters_options = ""
 
 st.dataframe(
