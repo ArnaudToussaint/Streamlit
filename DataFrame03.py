@@ -11,6 +11,7 @@ from pandas.api.types import (
 
 import requests
 import json
+import io
 
 st.set_page_config(page_title="Test", layout='wide')
 st.title("API officielles Gouv.fr")
@@ -29,6 +30,24 @@ key_values = {
 }
 
 @st.cache_data
+def get_df_info(df):
+    buffer = io.StringIO ()
+    df.info (buf=buffer)
+    lines = buffer.getvalue ().split ('\n')
+    # lines to print directly
+    lines_to_print = [0, 1, 2, -2, -3]
+    for i in lines_to_print:
+        st.write (lines [i])
+    # lines to arrange in a df
+    list_of_list = []
+    for x in lines [5:-3]:
+        list = x.split ()
+        list_of_list.append (list)
+    info_df = pd.DataFrame (list_of_list, columns=['index', 'Column', 'Non-null-Count', 'null', 'Dtype'])
+    info_df.drop (columns=['index', 'null'], axis=1, inplace=True)
+    #st.dataframe(info_df) #get_df_info(df)
+    return info_df
+
 def smi_to_png(img: str) -> str:
     base_url = 'https://api.gouv.fr'
     real_url = base_url+img
@@ -152,14 +171,16 @@ if "filters_options" not in st.session_state:
 
 height = (len(df_display) + 1) * 35 + 3
 
-import io
-buffer = io.StringIO()
-df_display.info(buf=buffer)
-s = buffer.getvalue()
+
+#buffer = io.StringIO()
+#df_display.info(buf=buffer)
+#s = buffer.getvalue()
 #st.text(s)
 with st.popover("DataSource infos"):
     st.markdown("Hello World 👋")
-    st.markdown(s)
+    #st.markdown(s)
+    st.dataframe(get_df_info(df))
+#st.dataframe(get_df_info(df)) #get_df_info(df)
 
 st.dataframe(
   #data=df, 
