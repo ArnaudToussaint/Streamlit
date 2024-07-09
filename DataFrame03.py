@@ -83,6 +83,9 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     modification_container = st.sidebar.container()
     #st.sidebar.selectbox
     with modification_container:
+        with st.popover("DataSource infos"):
+            st.markdown("Hello World 👋")
+            st.markdown(df.info())
         to_filter_columns = st.multiselect("Filter dataframe on", 
                                             options=df.columns, 
                                             format_func=lambda x: "{}".format(key_values.get(x),x)
