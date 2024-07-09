@@ -106,7 +106,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     with modification_container:
         with st.popover("DataSource infos"):
             #st.markdown("Hello World 👋")
-            st.markdown("🌐 " & data_url)
+            st.markdown("🌐 " + data_url)
             st.dataframe(get_df_info(df))
         to_filter_columns = st.multiselect("Filter dataframe on", 
                                             options=df.columns, 
